@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f9fafb;
+  --foreground: #020617;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #e5e7eb;
+}
+
+body {
+  @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-500/40 rounded-full;
+}
+
+.container-page {
+  @apply max-w-6xl mx-auto px-4 md:px-6 lg:px-8;
+}
