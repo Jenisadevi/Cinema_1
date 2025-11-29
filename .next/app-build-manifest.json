@@ -16,6 +16,14 @@
       "static/chunks/231-94c2302cc23ed0e3.js",
       "static/chunks/app/layout-c91c6faf28af05a6.js"
     ],
+    "/movies/genre/[genre]/page": [
+      "static/chunks/webpack-365fe83a4310541d.js",
+      "static/chunks/fd9d1056-83701e137505fb90.js",
+      "static/chunks/23-7c49545e79c69e52.js",
+      "static/chunks/main-app-46a7df8f699fd463.js",
+      "static/chunks/231-94c2302cc23ed0e3.js",
+      "static/chunks/app/movies/genre/[genre]/page-5caa9c7dfce77025.js"
+    ],
     "/movies/[slug]/page": [
       "static/chunks/webpack-365fe83a4310541d.js",
       "static/chunks/fd9d1056-83701e137505fb90.js",
@@ -33,14 +41,6 @@
       "static/chunks/231-94c2302cc23ed0e3.js",
       "static/chunks/203-60164c9f6903bbdf.js",
       "static/chunks/app/movies/page-8cb82df8aa31f9e8.js"
-    ],
-    "/movies/genre/[genre]/page": [
-      "static/chunks/webpack-365fe83a4310541d.js",
-      "static/chunks/fd9d1056-83701e137505fb90.js",
-      "static/chunks/23-7c49545e79c69e52.js",
-      "static/chunks/main-app-46a7df8f699fd463.js",
-      "static/chunks/231-94c2302cc23ed0e3.js",
-      "static/chunks/app/movies/genre/[genre]/page-5caa9c7dfce77025.js"
     ],
     "/movies/top-rated/page": [
       "static/chunks/webpack-365fe83a4310541d.js",

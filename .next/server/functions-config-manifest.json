@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/movies":{},"/movies/genre/[genre]":{},"/movies/[slug]":{},"/movies/top-rated":{},"/":{}}}
+{"version":1,"functions":{"/movies/[slug]":{},"/movies/genre/[genre]":{},"/movies":{},"/movies/top-rated":{},"/":{}}}

@@ -1,10 +1,10 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
+  "/movies/genre/[genre]/page": "app/movies/genre/[genre]/page.js",
   "/movies/[slug]/page": "app/movies/[slug]/page.js",
   "/movies/page": "app/movies/page.js",
-  "/movies/genre/[genre]/page": "app/movies/genre/[genre]/page.js",
   "/movies/top-rated/page": "app/movies/top-rated/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
   "/page": "app/page.js"
 }
