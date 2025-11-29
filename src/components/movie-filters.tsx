@@ -5,9 +5,13 @@ import { Movie } from "@/types/movie";
 import { useMemo, useState } from "react";
 import { MovieCard } from "./movie-card";
 
-const genres = ["all", ...getGenres()];
+export type MovieFiltersProps = {
+  initialMovies?: Movie[];
+  genres?: string[];
+};
 
-export default function MovieFilters() {
+export function MovieFilters({ initialMovies, genres: propGenres }: MovieFiltersProps) {
+  const genres = ["all", ...(propGenres ?? getGenres())];
   const [query, setQuery] = useState("");
   const [genre, setGenre] = useState("all");
   const [minRating, setMinRating] = useState(0);
@@ -15,16 +19,54 @@ export default function MovieFilters() {
     "rating-desc" | "year-desc" | "title-asc"
   >("rating-desc");
 
-  const filteredMovies: Movie[] = useMemo(
-    () =>
-      searchMovies({
-        query,
-        genre,
-        minRating: minRating || undefined,
-        sortBy
-      }),
-    [query, genre, minRating, sortBy]
-  );
+  const filteredMovies: Movie[] = useMemo(() => {
+    if (initialMovies) {
+      let result = [...initialMovies];
+
+      if (query && query.trim()) {
+        const q = query.toLowerCase();
+        result = result.filter(
+          (m) =>
+            m.title.toLowerCase().includes(q) ||
+            m.director.toLowerCase().includes(q) ||
+            m.cast.some((c) => c.toLowerCase().includes(q))
+        );
+      }
+
+      if (genre && genre !== "all") {
+        result = result.filter((m) =>
+          m.genres.map((g) => g.toLowerCase()).includes(genre.toLowerCase())
+        );
+      }
+
+      if (minRating) {
+        result = result.filter((m) => m.rating >= minRating);
+      }
+
+      switch (sortBy) {
+        case "rating-desc":
+          result.sort((a, b) => b.rating - a.rating);
+          break;
+        case "year-desc":
+          result.sort((a, b) => b.year - a.year);
+          break;
+        case "title-asc":
+          result.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        default:
+          break;
+      }
+
+      return result;
+    }
+
+    return searchMovies({
+      query,
+      genre,
+      minRating: minRating || undefined,
+      sortBy
+    });
+  }, [initialMovies, query, genre, minRating, sortBy]);
 
   return (
     <section className="mt-6 space-y-6">
@@ -110,3 +152,5 @@ export default function MovieFilters() {
     </section>
   );
 }
+
+export default MovieFilters;
